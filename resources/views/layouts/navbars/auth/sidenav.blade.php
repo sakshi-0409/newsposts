@@ -6,7 +6,7 @@
         <a class="navbar-brand m-0" href=""
             target="_blank">
             {{-- <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo"> --}}
-            <span class="ms-1 font-weight-bold">News Posts</span><br>
+            <span class="ms-1 font-weight-bold">News Posts</span> -
             <span class="ms-1 font-weight-bold">{{@Auth::user()->name}}</span><br>
             <span class="ms-1 font-weight-bold">{{@Auth::user()->email}}</span>
         </a>
