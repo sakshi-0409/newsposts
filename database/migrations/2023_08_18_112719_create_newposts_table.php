@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('newposts', function (Blueprint $table) {
             $table->id();
+            $table->string('post_title');
+            $table->string('post_des');
+            $table->string('post_img')->nullable();
+            $table->string('post_url')->nullable();
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
