@@ -28,7 +28,21 @@ class newPostController extends Controller
         }
         $newpost->post_url = $request->post_url;
         $newpost->post_des = $request->post_des;
+        $newpost->status = $request->status;
         $newpost->save();
+        return response()->json(['msg'=>'successfull']);
+
+    }
+    public function show(){
+        $posts = Newpost::all();
+        $data = compact('posts');
+        return view('pages/allposts')->with($data);
+    }
+    public function delete(Request $request){
+        // dd($request->id);
+        $post = Newpost::find($request->id);
+        // dd($post);
+        $post->delete();
         return response()->json(['msg'=>'successfull']);
 
     }

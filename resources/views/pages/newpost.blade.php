@@ -22,6 +22,14 @@
                 <label for="post_des" class="form-label">Post Something Latest</label>
                 <textarea class="form-control post_des" name="post_des" id="editor" rows="3"></textarea>
             </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="active" value="active">
+                <label class="form-check-label" for="active">Active</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="inactive" value="inactive">
+                <label class="form-check-label" for="inactive">Inactive</label>
+              </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-secondary">Post</button>
                 <button type="cancel" class="btn btn-danger">Cancel</button>
@@ -63,6 +71,9 @@
                 , post_des: {
                     required: true
                 }
+                , status: {
+                    required: true
+                }
 
             }
             , messages: {
@@ -71,6 +82,9 @@
                 }
                 , post_des: {
                     required: "Please enter some content"
+                }
+                , status: {
+                    required: "Please select post status"
                 }
 
             }

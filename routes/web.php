@@ -22,6 +22,8 @@ Route::get('/', function () {
 
 Route::get('/newpost', [newPostController::class, 'index'])->name('newpost');
 Route::post('/create-post', [newPostController::class, 'store'])->name('create-post');
+Route::get('/all-posts', [newPostController::class, 'show'])->name('all-posts');
+Route::get('/deletepost/{id}', [newPostController::class, 'delete'])->name('delete-post');
 
 
 Route::get('/dashboard', function () {
