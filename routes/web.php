@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\newPostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/newpost', function(){
-    return view('pages/newpost');
-})->name('newpost');
+
+
+Route::get('/newpost', [newPostController::class, 'index'])->name('newpost');
+Route::post('/create-post', [newPostController::class, 'store'])->name('create-post');
+
+
 Route::get('/dashboard', function () {
     return view('pages/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

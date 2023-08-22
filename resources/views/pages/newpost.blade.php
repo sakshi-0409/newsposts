@@ -5,13 +5,22 @@
 <div class="card shadow-lg mx-4">
     <div class="card-body p-3">
         <form id="form" action="" method="" enctype="multipart/form-data">
+            @csrf
             <div class="mb-3">
                 <label for="post_title" class="form-label">Post Title</label>
-                <input type="test" class="form-control" name="post_title" id="post_title" placeholder="New Post Title">
+                <input type="test" class="form-control post_title" name="post_title" id="post_title" placeholder="New Post Title">
+            </div>
+            <div class="mb-3">
+                <label for="post_image" class="form-label">Image</label>
+                <input type="file" class="form-control post_image" name="post_image" id="post_image">
+            </div>
+            <div class="mb-3">
+                <label for="post_url" class="form-label">Url</label>
+                <input type="url" class="form-control post_url" name="post_url" id="post_url" placeholder="Enter url">
             </div>
             <div class="mb-3">
                 <label for="post_des" class="form-label">Post Something Latest</label>
-                <textarea class="form-control" name="post_des" id="editor" rows="3"></textarea>
+                <textarea class="form-control post_des" name="post_des" id="editor" rows="3"></textarea>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-secondary">Post</button>
@@ -23,22 +32,22 @@
 @push('js')
 <script>
     ClassicEditor
-        .create(document.querySelector('#editor'), {
-            image: {
-                toolbar: ['toggleImageCaption', 'imageTextAlternative']
-            }
-            , simpleUpload: {
-                uploadUrl: '/newpost', // URL where files will be uploaded
-            }
-            
-        })
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-
+    .create(document.querySelector('#editor'), {
+        image: {
+            toolbar: ['toggleImageCaption', 'imageTextAlternative']
+        }
+        , simpleUpload: {
+            uploadUrl: '/newpost', // URL where files will be uploaded
+        }
+        
+    })
+    .then(editor => {
+        console.log(editor);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+    
 </script>
 
 <!-- jQuery and form validation script -->
@@ -68,10 +77,12 @@
             , submitHandler: function(form) {
                 var formData = new FormData(form);
                 console.log(formData);
-                
+                var imageFile = $('#post_image')[0].files[0];
+                formData.append('post_image', imageFile);
+
                 var url = '{{url("create-post")}}';
-                
-                
+
+
                 $.ajax({
 
                     url: url
@@ -82,6 +93,9 @@
                     , processData: false
                     , success: function(response) {
                         $('#form').trigger('reset');
+                        // $('#editor').html('');
+                        // CKEDITOR.instances['editor'].setData('');
+                        // window.location.reload();
                     }
                     , error: function(xhr, status, error) {
                         // Handle error response

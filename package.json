@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-image": "^39.0.1"
+        "@ckeditor/ckeditor5-image": "^39.0.1",
+        "@ckeditor/ckeditor5-upload": "^39.0.1"
     }
 }
