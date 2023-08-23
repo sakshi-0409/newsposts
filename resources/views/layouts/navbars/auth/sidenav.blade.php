@@ -50,7 +50,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Management</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'tables') == true ? 'active' : '' }}" href="{{ route('newpost') }}">
+                <a class="nav-link {{ str_contains(request()->url(), 'newpost') == true ? 'active' : '' }}" href="{{ route('newpost') }}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{  str_contains(request()->url(), 'allposts') == true ? 'active' : '' }}" href="{{ route('all-posts')}}">
+                <a class="nav-link {{  str_contains(request()->url(), 'all-posts') == true ? 'active' : '' }}" href="{{ route('all-posts')}}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
@@ -67,24 +67,24 @@
                     <span class="nav-link-text ms-1">All posts</span>
                 </a>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'virtual-reality' ? 'active' : '' }}" href="">
+            <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'post-advertisement' ? 'active' : '' }}" href="{{ route('post-advertisement')}}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-app text-info text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
+                    <span class="nav-link-text ms-1">Post Advertisement</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'rtl' ? 'active' : '' }}" href="">
+                <a class="nav-link {{ Route::currentRouteName() == 'all-advertisements' ? 'active' : '' }}" href="{{ route('all-advertisements')}}">
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">RTL</span>
+                    <span class="nav-link-text ms-1">All Advertisements</span>
                 </a>
-            </li> --}}
+            </li>
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
             </li>
